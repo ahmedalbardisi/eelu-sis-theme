@@ -1,0 +1,1422 @@
+/*
+                                                                                           
+ █████╗ ██╗  ██╗███╗   ███╗███████╗██████╗     ██╗  ██╗ █████╗ ███╗   ███╗██████╗ ██╗   ██╗
+██╔══██╗██║  ██║████╗ ████║██╔════╝██╔══██╗    ██║  ██║██╔══██╗████╗ ████║██╔══██╗╚██╗ ██╔╝
+███████║███████║██╔████╔██║█████╗  ██║  ██║    ███████║███████║██╔████╔██║██║  ██║ ╚████╔╝ 
+██╔══██║██╔══██║██║╚██╔╝██║██╔══╝  ██║  ██║    ██╔══██║██╔══██║██║╚██╔╝██║██║  ██║  ╚██╔╝  
+██║  ██║██║  ██║██║ ╚═╝ ██║███████╗██████╔╝    ██║  ██║██║  ██║██║ ╚═╝ ██║██████╔╝   ██║   
+╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚═════╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═════╝    ╚═╝   
+                                                                                           
+                        Ahmed Hamdy ✦ © 2025   
+    
+إزيك 👋 حابب نتواصل على لينكدإن، ده اللينك بتاعي:
+ linkedin.com/in/ahmed-al-bardisi                 
+
+* ===================================================
+* ملف Style الكامل: تصميم بوابة الجامعة (sis Page)
+* ===================================================
+*/
+/* ====== Variables ====== */
+
+:root {
+  --white-color: white ;
+  --primary-color: #1F4385;
+  --dark-beige:#D8A568;
+  --secondary-color:#4e5fc3 ;
+  --accent-color: #839ea5;
+  --text-color: #333333;
+  --light-gray: #f5f5f5;
+  --medium-gray: #e0e0e0;
+  --dark-gray: #666666;
+  --error-color: #e74c3c;
+  --success-color: #2ecc71;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* ====== Reset and Base ====== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: none;
+  min-width: fit-content;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-gray);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ====== Typography ====== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.75rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: var(--transition);
+  
+}
+a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+/* ====== Tables ====== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  border-top: none !important;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  border: 1px solid var(--medium-gray);
+}
+
+th {
+  background-color: var(--primary-color);
+  color: var(--white-color) !important;
+  font-weight: 600;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(110, 33, 181, 0.05);
+}
+
+tr:hover {
+  background-color: rgba(110, 33, 181, 0.1);
+}
+
+tr td img {
+  display: none;
+}
+
+table.tblprint {
+  all: unset;
+}
+
+td.tblprinttd {
+  all: unset;
+}
+
+td.tblprinttd table tbody tr td[width="5%"],
+td.tblprinttd table tbody tr td[colspan="2"],
+td.tblprinttd table tbody tr td[valign="bottom"] {
+  display: none;
+}
+
+td.tblprinttd table tbody tr td img {
+  display: flex;
+  border-radius: 5px;
+}
+
+table.tblprint tr td {
+  width: unset;
+  height: unset;
+}
+
+table#studentSanctionsDetTable {
+  all: unset;
+  font-weight: 900;
+  color: var(--error-color);
+}
+
+#formTbl tr td {
+  direction: rtl;
+  padding: 10px;
+  background-color: var(--light-gray);
+  border-radius: 6px;
+}
+
+#formTbl tr td label {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--dark-gray);
+  transition: color 0.2s;
+}
+/* ====== Forms ====== */
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  border: 1px solid var(--medium-gray);
+  background-color: var(--white-color);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(110, 33, 181, 0.2);
+}
+
+.formTableContact td[colspan="2"] {
+  display: none;
+}
+
+#PassTxt,
+#RePassTxt {
+  width: 100% !important;
+  padding: 8px 12px !important;
+  border: 1px solid var(--medium-gray) !important;
+  border-radius: 4px !important;
+  margin-bottom: 10px !important;
+}
+
+/* ====== Buttons ====== */
+button,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  margin: 8px 8px 8px 0;
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+button:hover,
+.button:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active,
+.button:active {
+  transform: translateY(0);
+}
+
+button img {
+  display: none;
+}
+
+button#PrintCoursesReg,
+button#ModifystudentPersonalData,
+button#ModifycontactPortal,
+button#SavecontactPortal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  margin: 8px 8px 8px 0;
+  background-color: var(--secondary-color) !important;
+  background-image: none;
+  color: var(--white-color);
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+button#ModifycontactPortal::after {
+    content: "حفظ البيانات"; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white-color);
+    font-weight: 600;
+    font-size: 0.5rem;
+    white-space: nowrap;
+}
+
+button#ModifycontactPortal { 
+    position: relative;
+    color: transparent !important; 
+}
+.button-a.blue {
+  background: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.button-a.blue:hover {
+  background: var(--primary-color);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.button-a.blue:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+/* ====== Widgets ====== */
+.widget-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.widget {
+  background-color: var(--white-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.widget:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.widget-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.widget-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.widget-footer {
+  font-size: 0.85rem;
+  color: var(--dark-gray);
+}
+
+/* ====== Alerts and Status ====== */
+.error {
+  color: var(--error-color);
+  background-color: rgba(231, 76, 60, 0.1);
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin: 10px 0;
+  display: inline-block;
+}
+
+.success {
+  color: var(--success-color);
+  background-color: rgba(46, 204, 113, 0.1);
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin: 10px 0;
+  display: inline-block;
+}
+
+/* ====== Navbar ====== */
+.navbar {
+  background-color: var(--white-color);
+  box-shadow: var(--box-shadow);
+  padding: 15px 0;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+}
+
+.nav-item {
+  margin-right: 20px;
+  position: relative;
+}
+
+.nav-link {
+  padding: 10px 15px;
+  color: var(--text-color);
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
+
+/* ====== Animations ====== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+.delay-2 {
+  animation-delay: 0.2s;
+}
+.delay-3 {
+  animation-delay: 0.3s;
+}
+
+/* ====== Scrollbar ====== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+/* ====== Navigation and Main Menu ====== */
+#navigation {
+  direction: rtl;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  height: 100vh;
+  gap: 35px;
+  overflow: auto;
+  box-sizing: content-box;
+}
+
+#navigation header {
+  height: 90px;
+  margin: 0 !important;
+  padding: 0;
+  flex: 1;
+  min-width: 240px;
+  margin-right: 20px;
+}
+
+.university-name {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+#navigation header em {
+  font-size: 1rem;
+  color: var(--dark-gray);
+  font-style: normal;
+}
+
+nav#main-nav {
+  margin: 0;
+  margin-right: 0 !important;
+}
+
+#main-nav {
+  flex-basis: 100%;
+  margin-top: 15px;
+  margin-right: 20px;
+}
+
+#main_menu {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 0;
+  margin: 0;
+}
+
+#main_menu li {
+  position: relative;
+}
+
+#main_menu li a {
+  display: block;
+  padding: 8px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+#main_menu li a:hover {
+  background-color: var(--medium-gray);
+  color: var(--primary-color);
+}
+
+#main_menu li.current a {
+  background-color: var(--primary-color);
+  color: var(--white-color) !important;
+}
+
+#main_menu li a::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(0.5);
+}
+
+#main_menu li a:hover::before {
+  filter: brightness(1);
+}
+
+#main_menu li.current a::before {
+  filter: brightness(2);
+}
+
+#main-nav ul li {
+  background-image: none;
+}
+
+#main-nav ul li a {
+  color: var(--primary-color);
+  background-image: none !important;
+  padding: 5px 0px 5px 5px;
+  height: 30px;
+  width: 230px;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  background-repeat: no-repeat;
+  transition: color 400ms ease;
+}
+#main-nav ul li a:hover {
+    color:var(--secondary-color);
+}
+/* ====== User Info Panel ====== */
+#user-info {
+  height: auto;
+  background-image: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 100%;
+  border-top: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  background-color: var(--white-color);
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: column-reverse;
+}
+
+#user-info > div {
+  text-align: right;
+  margin-left: 0;
+}
+
+#user-info ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  width: max-content;
+}
+
+#user-info li {
+  margin-left: 10px;
+  /*! new */
+  float: left;
+}
+
+#user-info div > a {
+  height: 20px;
+}
+
+#stdLogName,
+#stdProgName {
+  display: block;
+  font-size: 0.9rem !important;
+  color: var(--dark-gray);
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+#stdProgName {
+  color: var(--dark-gray);
+  font-size: 0.8rem !important;
+}
+
+#UsrImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  object-fit: cover;
+  margin-left: 15px;
+  padding: 0;
+  border: none;
+}
+
+a#changePortalLang {
+  margin: 0 !important;
+}
+
+/* ====== Popup/Dialog Boxes ====== */
+#popup_container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  border: none;
+  background: var(--white-color);
+  animation: fadeIn 0.3s ease-out;
+}
+
+#popup_title {
+  background: var(--primary-color);
+  color: var(--white-color);
+  height: 50px;
+  padding: 15px 10px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: right;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+#popup_content {
+  padding: 20px;
+  background: var(--light-gray);
+}
+
+#popup_message {
+  color: var(--dark-gray);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+#popup_panel {
+  text-align: left;
+  direction: rtl;
+}
+
+.ui-dialog {
+  min-width: 350px !important;
+  max-width: 350px !important;
+  resize: none !important;
+}
+
+.ui-dialog-titlebar {
+  background: var(--primary-color) !important;
+  color: var(--white-color) !important;
+  padding: 10px 15px !important;
+  border-radius: 5px 5px 0 0 !important;
+  font-weight: bold !important;
+}
+
+.ui-dialog-content {
+  padding: 15px !important;
+  background: var(--white-color) !important;
+}
+
+.ui-dialog-buttonpane {
+  background: var(--light-gray) !important;
+  padding: 10px !important;
+  text-align: left !important;
+  border-radius: 0 0 5px 5px !important;
+}
+
+.ui-button {
+  padding: 6px 12px !important;
+  background: var(--primary-color) !important;
+  color: var(--white-color) !important;
+  border: none !important;
+  border-radius: 4px !important;
+  margin-left: 5px !important;
+}
+
+.ui-button:hover {
+  background: var(--secondary-color) !important;
+}
+
+.ui-widget-overlay {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+/* ====== Media Queries ====== */
+@media (max-width: 992px) {
+  html {
+    font-size: 15px;
+  }
+
+  .widget-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  .navbar {
+    padding: 10px 0;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+  }
+
+  .nav-item {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .user-profile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .user-avatar {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .widget-container {
+    grid-template-columns: 1fr;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* ====== Other Custom Sections ====== */
+section#main {
+  background: unset;
+  padding: 0 25px;
+  margin-left: unset !important;
+}
+
+div#divContents {
+  width: unset;
+}
+
+#divContents p,
+center span {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 70vh !important;
+  text-align: center !important;
+  color: var(--dark-gray) !important;
+  font-family: "Cairo", sans-serif !important;
+  font-size: 20px !important;
+  background-color: var(--light-gray) !important;
+  border: 2px dashed var(--medium-gray) !important;
+  border-radius: 12px !important;
+  margin: 40px !important;
+  padding: 40px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+#divContents p::before,
+center span::before {
+  content: "📄 " !important;
+  font-size: 24px !important;
+  display: inline-block !important;
+  margin-left: 5px !important;
+}
+
+form span::first-line {
+  background-color: #fff8c4 !important;
+  border-left: 6px solid #f1c40f;
+  padding: 15px 20px;
+  margin: 20px 0;
+  font-size: 16px;
+  color: #333;
+  border-radius: 8px;
+  position: relative;
+  font-family: "Cairo", sans-serif;
+}
+
+ol {
+  all: unset;
+  display: block;
+  margin: 10px 21px;
+}
+
+span {
+  all: unset !important;
+}
+
+img#ImgLogo {
+  display: flex;
+  background-size: cover;
+}
+
+/* ====== UI Resizable Fixes ====== */
+.ui-resizable-handle.ui-resizable-w,
+.ui-resizable-handle.ui-resizable-e {
+  z-index: 0 !important;
+  cursor: pointer;
+}
+
+.ui-resizable-handle {
+  display: none !important;
+}
+
+/* ====== Password Modal Fix ====== */
+div#DivChangePass {
+  overflow: hidden;
+  height: auto !important;
+}
+
+a.ui-dialog-titlebar-close.ui-corner-all {
+  width: auto;
+  height: auto;
+  background: var(--error-color);
+  border-radius: 5px;
+  padding: 2px;
+  color: var(--white-color);
+  left: 5px;
+  border: none;
+  right: unset;
+}
+a.ui-dialog-titlebar-close.ui-corner-all:hover {
+  text-decoration: none;
+  border: none;
+  padding: 2px;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ====== Fields Display (English/Email/Phone) ====== */
+td#EnglishNameTD,
+td#EmailTD,
+td#TelephoneTD {
+  display: block;
+}
+
+input#TxtTelephone,
+input#TxtEmail,
+input#TxtEnglishName {
+  display: block;
+}
+/*========================================================*/
+html.js.flexbox.canvas.canvastext.webgl.no-touch.geolocation.postmessage.no-websqldatabase.no-indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.video.audio.localstorage.sessionstorage.webworkers.no-applicationcache.svg.inlinesvg.smil.svgclippaths {
+  margin: 0;
+  width: 100%;
+  padding: 0;
+  background: var(--white-color);
+}
+
+div {
+  width: 100% !important;
+}
+
+div#popup_overlay {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+section[role="navigation"] header h1 {
+  height: 40px;
+  font-size: small;
+}
+
+p#logo {
+  font-size: smaller;
+}
+
+img#UsrImg {
+  border: none;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+}
+.TdLabel {
+  padding: 8px;
+  font-weight: 600;
+}
+td.NewLabel table:last-child {
+  display: none;
+}
+
+td[valign="bottom"] {
+  text-align: center;
+}
+
+table#formTbl {
+  box-shadow: none;
+}
+.user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+  border: 3px solid var(--primary-color);
+}
+
+.user-info h3 {
+  margin-bottom: 5px;
+}
+
+.user-role {
+  color: var(--dark-gray);
+  font-size: 0.9rem;
+}
+#user-info ul li {
+  margin-right: 0px;
+  float: left;
+}
+
+.stimeTabletd {
+  border: 2px solid var(--secondary-color);
+  padding: 10px;
+  vertical-align: middle;
+  background-color: var(--white-color);
+  border-radius: 6px;
+}
+
+.ui-tabs-panel,
+.ui-autocomplete {
+  max-height: 200px;
+  overflow: auto;
+  border-radius: 6px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--white-color);
+}
+
+.ui-autocomplete {
+  padding-right: 0;
+}
+.ui-widget-overlay {
+     background: var(--white-color);
+     background-image: none;
+     opacity: 0.8;
+}
+
+#formTbl tr td input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--dark-gray);
+  border-radius: 50%;
+  margin-left: 8px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 8px;
+  position: relative;
+}
+
+#formTbl tr td input[type="radio"]:checked {
+  border-color: var(--primary-color);
+}
+
+#formTbl tr td input[type="radio"]:checked::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#formTbl tr td input[type="radio"]:hover {
+  border-color: var(--primary-color);
+}
+
+#formTbl tr td label:hover {
+  color: var(--primary-color);
+}
+
+#main-nav > ul {
+  background-image: none;
+}
+.button-link {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: var(--white-color);
+  color: var(--text-color) !important;
+  border-radius: 4px;
+  font-size: 0.8rem !important;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+
+.button-link:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color) !important;
+}
+button#ModifystudentPersonalData {
+  width: max-content !important;
+  height: auto !important;
+}
+/*==================================================  */
+
+div#portalDiv[dir="ltr"] section#user-info {
+  flex-direction: column;
+  direction: ltr;
+  margin: 0;
+}
+
+div#portalDiv[dir="ltr"] nav#main-nav {
+  margin: 0;
+  margin-left: 0 !important;
+}
+
+div#portalDiv[dir="ltr"] #user-info > div {
+  text-align: left;
+}
+
+div#portalDiv[dir="ltr"] #user-info ul {
+  box-sizing: content-box;
+  width: 100%;
+  gap: 10px;
+}
+div#portalDiv[dir="ltr"] {
+  display: flex;
+}
+
+div#portalDiv[dir="ltr"] section#navigation {
+  direction: ltr;
+  position: sticky;
+}
+
+ul#main_menu {
+  margin-bottom: 31px;
+}
+
+body[style="direction: ltr;"] a.ui-dialog-titlebar-close.ui-corner-all {
+  left: unset !important;
+  right: 5px !important;
+}
+
+/*=======================  */
+table.signatureTable tbody tr:nth-child(2) {
+    display: none;
+}
+/* 
+div#portalDiv[dir="rtl"] {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+section#main {
+    margin: 0 !important;
+}
+
+section#navigation {
+    position: sticky;
+} 
+div#divContents
+ {
+
+    width: min-content !important;
+} 
+*/
+
+/* ====== Custom Button Text ====== */
+button#SavestuRegFrm {
+    background: var(--primary-color);
+    background-image: none;
+    width: 150px;
+    height: 50px;
+    position: relative;
+    color: transparent !important; 
+}
+
+button#SavestuRegFrm::after {
+    content: "حفظ البيانات"; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white-color);
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+button#PrintCoursesReg  {
+    background: var(--primary-color);
+    background-image: none;
+    width: 100px;
+    height: 35px;
+    position: relative;
+    color: transparent !important; 
+}
+
+button#PrintCoursesReg::after {
+    content: "حفظ البيانات"; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white-color);
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+/* ====== Tabs Styling ====== */
+font {
+    color: var(--white-color);
+}
+b font {
+    color: var(--primary-color) !important;
+}
+
+table#CoursesTableForm tr th {
+    background: var(--primary-color) !important;
+}
+.tblRegCrs tr td img {
+    display:block;
+}
+ul.nav.nav-tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0 0 20px 0;
+    border-bottom: 2px solid var(--medium-gray);
+    list-style: none;
+    background: none;
+}
+
+ul.nav.nav-tabs li {
+    float: none;
+    margin: 0 0 0 5px;
+    position: relative;
+    background-color: var(--light-gray);
+    background-image: none;
+    border: 1px solid var(--medium-gray);
+    border-bottom: 1px solid var(--medium-gray) !important;
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+ul.nav.nav-tabs li a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--dark-gray);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+ul.nav.nav-tabs li.ui-state-active {
+    background-color: var(--primary-color);
+    background-image: none;
+    border-color: var(--white-color);
+}
+
+ul.nav.nav-tabs li.ui-state-active a {
+        color:var(--white-color);
+}
+
+ul.nav.nav-tabs li:hover:not(.ui-state-active) {
+    background-color: var(--medium-gray);
+    background-image: none;
+}
+
+/* Fix for jQuery UI overrides */
+.ui-tabs-nav {
+    background: none !important;
+    background-image: none;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.ui-widget-header {
+    background: none !important;
+    background-image: none;
+    border: none !important;
+    color: inherit !important;
+}
+
+button#SavestuRegFrm {
+    background:var(--primary-color);
+    background-image: none;
+    width: 150px;
+    height: 50px;
+}
+
+div#level {
+    height: 360px;
+}
+
+div#leveltabs {
+    height: 360px;
+}
+
+div#tabs-2 {
+    margin: 0;
+    min-height: 300px;
+}
+div#portalDiv[dir="ltr"]  section#main {
+    margin-left: 271px !important;
+}
+
+
+
+div#portalDiv[dir="ltr"] section#navigation {
+    direction: ltr;
+    position: fixed;
+}
+/* =========================================== */
+/* تصميم البطاقة الشخصية المتميز */
+.tblprinttd {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    padding: 20px !important;
+    margin: 25px auto;
+    border: none !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.cardtbl::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #3498db, #2c3e50);
+}
+
+.cardtbl {
+    background: white;
+    border-radius: 8px;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.cardtbl tr:first-child td {
+    background: linear-gradient(90deg, #2c3e50, #3498db) !important;
+    color: white;
+    height: 50px !important;
+    padding: 0 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.cardtbl tr:first-child td::after {
+    content: "البطاقة الجامعية";
+    position: absolute;
+    right: 15px;
+}
+
+.cardtbl tr:nth-child(2) td:nth-child(2) {
+    background-color: white;
+    padding: 15px 20px !important;
+    vertical-align: middle;
+    border-right: 1px solid #f0f0f0;
+}
+
+.cardtbl font {
+    font-family: 'Segoe UI', Tahoma, sans-serif !important;
+    color: #2c3e50 !important;
+    display: inline-block;
+    margin-bottom: 3px;
+    position: relative;
+    padding-right: 15px;
+}
+
+/* .cardtbl font::before {
+    content: "•";
+    position: absolute;
+    right: 0;
+    color: #3498db;
+    font-weight: bold;
+} */
+
+.cardtbl img[src*="stuImages"] {
+    border: 3px solid white;
+    border-radius: 4px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.cardtbl img[src*="deans"] {
+    filter: sepia(100%) brightness(90%) contrast(110%);
+    height: 25px !important;
+    margin-top: 5px;
+}
+
+.cardtbl span font {
+    font-size: 9px !important;
+    color: #7f8c8d !important;
+    letter-spacing: 0.3px;
+}
+
+/* .tblprinttd:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+} */
+
+.tblprinttd:hover .cardtbl img[src*="stuImages"] {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* تأثيرات النصوص */
+.cardtbl font[color="#000"] {
+    font-weight: 600 !important;
+    line-height: 1.6;
+}
+
+/* شريط التوقيع */
+.cardtbl tr:nth-child(2) td:last-child {
+    background: #f9f9f9;
+    border-left: 1px dashed #e0e0e0;
+}
+
+/* تصميم للعنوان الجامعي */
+.cardtbl font[style*="FONT: bold 5pt"] {
+    background: #f8f9fa;
+    padding: 3px 8px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 5px;
+    border: 1px dashed #d6e0e9;
+    color: #7f8c8d !important;
+    font-size: 8px !important;
+}
+
+/* شريط سفلي تزييني */
+.cardtbl::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #3498db, #2c3e50);
+}

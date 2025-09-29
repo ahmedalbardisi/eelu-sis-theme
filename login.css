@@ -1,0 +1,326 @@
+/*
+                                                                                           
+ █████╗ ██╗  ██╗███╗   ███╗███████╗██████╗     ██╗  ██╗ █████╗ ███╗   ███╗██████╗ ██╗   ██╗
+██╔══██╗██║  ██║████╗ ████║██╔════╝██╔══██╗    ██║  ██║██╔══██╗████╗ ████║██╔══██╗╚██╗ ██╔╝
+███████║███████║██╔████╔██║█████╗  ██║  ██║    ███████║███████║██╔████╔██║██║  ██║ ╚████╔╝ 
+██╔══██║██╔══██║██║╚██╔╝██║██╔══╝  ██║  ██║    ██╔══██║██╔══██║██║╚██╔╝██║██║  ██║  ╚██╔╝  
+██║  ██║██║  ██║██║ ╚═╝ ██║███████╗██████╔╝    ██║  ██║██║  ██║██║ ╚═╝ ██║██████╔╝   ██║   
+╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚═════╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═════╝    ╚═╝   
+                                                                                           
+                        Ahmed Hamdy ✦ © 2025   
+    
+إزيك 👋 حابب نتواصل على لينكدإن، ده اللينك بتاعي:
+ linkedin.com/in/ahmed-al-bardisi                 
+
+* ===================================================
+* ملف Style الكامل: تصميم بوابة الجامعة (Login Page)
+* ===================================================
+*/
+
+/* 1. ====== Variables ====== */
+
+:root {
+    /* الألوان الأساسية لنموذج الجامعة */
+    --white-color: white;
+    --primary-color: #1F4385; /* اللون الأساسي (الأزرق الداكن للجامعة) */
+    --dark-beige: #D8A568; /* لون ثانوي دافئ (الذهبي/البيج الداكن) */
+    --secondary-color: #4e5fc3; /* لون تكميلي/زرار الـ CTA (بنفسجي/أزرق فاتح) */
+    --accent-color: #839ea5;
+    
+    /* ألوان النصوص والظلال */
+    --text-color: #333333;
+    --light-gray: #f5f5f5; /* لون خلفية فاتح جداً */
+    --medium-gray: #e0e0e0;
+    --dark-gray: #666666;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+
+    /* التأثيرات */
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* 2. ====== Reset and Base ====== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: none;
+    min-width: fit-content;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-gray); /* لون أساسي */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ====== Typography (للتطبيق داخل النموذج فقط) ====== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+
+/*
+ * ===================================================
+ * 3. تصميم صفحة تسجيل الدخول (Split-Screen Design)
+ * ===================================================
+ */
+
+/* 3.1. تقسيم الشاشة والمظهر العام */
+body {
+    background-color: var(--light-gray) !important;
+    background-image: none !important;
+
+    /* إعداد Flexbox لتقسيم الشاشة 50/50 */
+    min-height: 100vh !important;
+    display: flex !important;
+    justify-content: flex-start !important; 
+    align-items: stretch !important; 
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+/* 3.2. حاوية النموذج - تمثل النصف الأيسر (50% من الشاشة) */
+.wrapper {
+    width: 50% !important; /* النصف المخصص للنموذج */
+    max-width: unset !important;
+    padding: 20px !important;
+    background-color: var(--white-color) !important;
+    
+    /* توسيط محتوى النموذج داخله */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    
+    min-width: 350px !important; /* لضمان عدم ضغط النموذج أكثر من اللازم */
+    z-index: 10 !important; 
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+/* 3.3. صندوق المحتوى الرئيسي (تصميم مُصغّر و Compact) */
+#formContent {
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important; 
+    box-shadow: none !important; 
+    transition: none !important;
+    width: 100% !important;
+    max-width: 360px !important; /* تحكم في عرض عناصر النموذج الداخلي */
+    text-align: center !important;
+    border: none !important;
+}
+
+#formContent:hover {
+    transform: none !important; 
+    box-shadow: none !important;
+}
+
+/* 3.4. الشعار والعنوان داخل النموذج (صغير وأنيق) */
+.university-name {
+    display: block !important;
+    color: var(--primary-color) !important;
+    font-size: 1.6rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 2px !important;
+}
+
+.university-name + font {
+    display: block !important;
+    color: var(--dark-gray) !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 25px !important;
+}
+
+/* 3.5. حقول الإدخال (Compact) */
+#name, #password {
+    width: 100% !important;
+    padding: 12px 15px !important; /* تقليل حجم الـ Padding */
+    margin-bottom: 15px !important; 
+    border: 1px solid var(--medium-gray) !important;
+    border-radius: 6px !important; /* تدوير أقل */
+    font-size: 15px !important;
+    background-color: var(--white-color) !important;
+    color: var(--text-color) !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+#name:focus, #password:focus {
+    border-color: var(--primary-color) !important; 
+    box-shadow: 0 0 0 2px rgba(31, 67, 133, 0.2) !important;
+    background-color: var(--white-color) !important;
+    transform: scale(1.00);
+}
+
+/* 3.6. زر تسجيل الدخول (Compact) */
+#login_btn {
+    width: 100% !important;
+    background-color: var(--secondary-color) !important;
+    color: var(--white-color) !important;
+    padding: 14px 0 !important; /* تقليل حجم الزر */
+    border-radius: 6px !important; 
+    font-size: 1rem !important; /* تقليل حجم الخط */
+    font-weight: 700 !important;
+    box-shadow: 0 5px 12px rgba(78, 95, 195, 0.2) !important;
+    transition: var(--transition) !important;
+    cursor: pointer !important;
+}
+
+#login_btn:hover {
+    background-color: var(--primary-color) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 15px rgba(31, 67, 133, 0.3) !important;
+}
+
+/* 3.7. رابط نسيت كلمة المرور والتذييل (Compact) */
+#ForgetPassword {
+    margin-top: 15px !important;
+    font-size: 0.9rem !important;
+    color: var(--primary-color) !important;
+}
+
+#formFooter {
+    margin-top: 25px !important;
+    font-size: 0.75rem !important;
+    color: var(--dark-gray) !important;
+}
+#formFooter a:hover {
+    color: var(--primary-color) !important;
+    text-decoration: underline !important;
+}
+
+
+/*
+ * ===================================================
+ * 4. تصميم النصف الجمالي (القسم الأيمن - Branding)
+ * ===================================================
+ */
+
+/* 4.1. النصف الجمالي (الخلفية الزرقاء مع الجملة التحفيزية في الأسفل) */
+body::after {
+    content: " ﷽ \A ﴾ (39) وَأَنْ لَيْسَ لِلْإِنْسَانِ إِلَّا مَا سَعَى ﴿ " !important; /* إضافة الجملة التحفيزية هنا */
+    white-space: pre-wrap !important;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 50% !important;
+    height: 100% !important;
+    
+    /* تنسيق الخلفية كما كان */
+    background: var(--primary-color) !important;
+    background-image: linear-gradient(135deg, var(--primary-color) 0%, rgba(31, 67, 133, 0.85) 100%) !important;
+    
+    /* تنسيق النص المضاف (الجملة التحفيزية) */
+    text-align: center !important;
+    padding-top: 60vh !important; /* وضع النص في الجزء السفلي */
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    font-style: italic !important;
+    
+    z-index: 5 !important;
+    pointer-events: none !important;
+}
+
+/* 4.2. تنسيق اسم الجامعة (العنوان الرئيسي) */
+body::before {
+    content: "كلية الحاسبات وتكنولوجيا المعلومات" !important;
+    position: fixed !important;
+    top: 45% !important; 
+    right: 25% !important; 
+    transform: translate(50%, -50%) !important; 
+    
+    width: 45% !important; 
+    text-align: center !important;
+    color: var(--white-color) !important;
+    font-size: 2.5rem !important; 
+    font-weight: 900 !important; 
+    letter-spacing: 1px !important;
+    line-height: 1.2 !important;
+    text-shadow: 0 3px 7px rgba(0, 0, 0, 0.4) !important;
+    z-index: 15 !important;
+}
+
+/*
+ * ===================================================
+ * 5. تصميم خيارات تسجيل الدخول (Toggle Buttons)
+ * ===================================================
+ */
+
+.optionsLogin {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 6px !important; /* تقليل المسافة أكثر */
+    margin-bottom: 20px !important; /* تقليل المسافة */
+    padding: 0 !important;
+    background-color: transparent !important;
+    flex-wrap: wrap !important;
+}
+
+/* إخفاء إطار الراديو الافتراضي */
+.optionsLogin .form-check-input {
+    position: absolute !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
+}
+
+/* تنسيق الـ Label ليصبح الزر الأنيق (Pill Button) */
+.optionsLogin .form-check-label {
+    display: inline-block !important;
+    padding: 8px 14px !important; /* تقليل الـ Padding للـ Compact Look */
+    border-radius: 16px !important; 
+    color: var(--dark-gray) !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    border: 1px solid var(--medium-gray) !important; /* بوردر أرق */
+    background-color: var(--light-gray) !important;
+    transition: var(--transition) !important;
+    user-select: none !important;
+    font-size: 0.9rem !important; /* خط أصغر */
+    margin: 0 !important;
+}
+
+/* حالة الاختيار النشط (Active/Checked State) */
+.optionsLogin .form-check-input:checked + .form-check-label {
+    color: var(--white-color) !important;
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 2px 8px rgba(31, 67, 133, 0.25) !important;
+    transform: none !important;
+}
+
+/*
+ * ===================================================
+ * 6. الاستجابة (Media Queries)
+ * ===================================================
+ */
+
+@media (max-width: 992px) {
+    /* على الأجهزة اللوحية الأصغر، نجعل النصف الجمالي يختفي */
+    .wrapper {
+        width: 100% !important; /* النموذج يأخذ كامل الشاشة */
+        box-shadow: none !important;
+    }
+    body::after, body::before {
+        display: none !important;
+    }
+}
