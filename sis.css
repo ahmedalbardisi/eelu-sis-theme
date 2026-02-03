@@ -186,6 +186,9 @@ table#studentSanctionsDetTable {
   color: var(--dark-gray);
   transition: color 0.2s;
 }
+#divContents tr td font {
+    color: var(--primary-color);
+}
 /* ====== Forms ====== */
 input,
 select,
@@ -1419,4 +1422,5 @@ div#portalDiv[dir="ltr"] section#navigation {
     width: 100%;
     height: 5px;
     background: linear-gradient(90deg, #3498db, #2c3e50);
+
 }
