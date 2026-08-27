@@ -809,8 +809,7 @@ div#divContents {
   width: unset;
 }
 
-#divContents p,
-center span {
+#divContents p, center span, .no-data-message {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -822,7 +821,7 @@ center span {
   background-color: var(--light-gray) !important;
   border: 2px dashed var(--medium-gray) !important;
   border-radius: 12px !important;
-  margin: 40px !important;
+  margin: 0px !important;
   padding: 40px !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
 }
@@ -884,9 +883,10 @@ a.ui-dialog-titlebar-close.ui-corner-all {
   height: auto;
   background: var(--error-color);
   border-radius: 5px;
-  padding: 2px;
+  padding: 3px;
   color: var(--white-color);
   left: 5px;
+  font-size: small;
   border: none;
   right: unset;
 }
@@ -1263,7 +1263,7 @@ div#leveltabs {
     height: 360px;
 }
 
-div#tabs-2 {
+div#tabs-1,div#tabs-2 ,div#tabs-3 ,div#tabs-4  {
     margin: 0;
     min-height: 300px;
 }
@@ -1423,4 +1423,260 @@ div#portalDiv[dir="ltr"] section#navigation {
     height: 5px;
     background: linear-gradient(90deg, #3498db, #2c3e50);
 
+}
+
+
+.card-header {
+background:#1F4385 !important;
+padding:10px;
+font-weight: unset;
+font-size: unset;
+color: white;
+}
+.card-body {
+    background: unset;
+    border-radius: unset;
+    box-shadow: unset;
+    padding: unset;
+}
+
+.student-card {
+    background: unset;
+    border-radius: unset;
+    box-shadow: unset;
+    margin-bottom: unset;
+    /* overflow: unset; */
+}
+
+table.info-table {
+    margin: unset;
+    box-shadow: unset;
+
+}
+
+section#user-info {
+    min-width: fit-content;
+    justify-content: space-between;
+    background: white !important;
+    box-shadow: unset !IMPORTANT;
+}
+
+section#user-info {
+    padding: 5px !important;
+}
+
+#ChangePassTbl tbody {
+    box-shadow: none;
+}
+
+
+
+div#DivChangePass {
+    padding: unset;
+}
+
+#ChangePassTbl tbody td {
+    padding: 5px;
+    border: none;
+}
+
+#ChangePassTbl tbody tr {
+    background-color: white;
+   
+}
+
+table#ChangePassTbl {
+    box-shadow: none;
+}
+
+img#UsrImg {
+    border-radius: 6px !important;
+    border: none !important;
+    padding: 2px !important;
+    height: max-content !important;
+}
+
+section#user-info {align-items: flex-start !important;
+    margin-right: 0 !important;
+}
+
+.user-action#ChangePass, .user-action#changePortalLang , .user-action#LogOutImg {
+    border-radius: 6px !important;
+    height: max-content;
+    font-weight: 900;
+    padding: 5px 10px !important;
+}
+#user-info > DIV > DIV:last-child {
+    margin-top: 20px !important;
+}
+section#navigation {
+    max-height: max-content !important;
+}
+
+
+nav#portal-nav {
+    padding: 0;
+    margin: 0 !important;
+    height: fit-content !important;
+    min-height: fit-content !important;
+    padding-bottom: 50px !important;
+}
+.fees-table thead th {
+    background: var(--primary-color) !important;
+}
+
+.academic-info {
+    all: unset;
+}
+
+.fees-table input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 22px;
+    height: 22px;
+
+    background: var(--white-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 7px;
+
+    cursor: pointer;
+    position: relative;
+
+    transition: 
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Hover */
+.fees-table input[type="checkbox"]:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(31, 67, 133, 0.18);
+}
+
+/* Checked */
+.fees-table input[type="checkbox"]:checked {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(31, 67, 133, 0.25);
+}
+
+/* Check mark */
+.fees-table input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+
+    width: 6px;
+    height: 11px;
+
+    left: 50%;
+    top: 45%;
+
+    border: solid var(--white-color);
+    border-width: 0 2px 2px 0;
+
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.warning-options {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 16px 20px;
+    background: var(--white-color);
+    border: 1px solid #e5e9f0;
+    border-radius: 12px;
+
+    direction: rtl;
+}
+
+/* العنوان */
+.warning-label {
+    color: var(--primary-color);
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* مجموعة الخيارات */
+.warning-radio-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* إخفاء الـ radio الأصلي */
+.warning-radio-group input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* الخيار */
+.warning-radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 14px;
+
+    color: #4b5563;
+    background: #f8f9fb;
+
+    border: 1px solid #e1e5eb;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+/* الدائرة */
+.warning-radio-group label::before {
+    content: "";
+
+    width: 16px;
+    height: 16px;
+
+    border: 2px solid #b8c0cc;
+    border-radius: 50%;
+
+    background: var(--white-color);
+
+    box-sizing: border-box;
+
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+.warning-radio-group label:hover {
+    color: var(--primary-color);
+    border-color: #b7c6df;
+    background: #f5f7fb;
+}
+
+/* الخيار المحدد */
+.warning-radio-group input[type="radio"]:checked + label {
+    color: var(--primary-color);
+    background: #eef3fb;
+    border-color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* الدائرة عند الاختيار */
+.warning-radio-group input[type="radio"]:checked + label::before {
+    border: 5px solid var(--primary-color);
+}
+
+/* Focus */
+.warning-radio-group input[type="radio"]:focus-visible + label {
+    outline: 3px solid rgba(31, 67, 133, 0.15);
+    outline-offset: 2px;
 }
