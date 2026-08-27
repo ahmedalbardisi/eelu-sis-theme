@@ -1611,6 +1611,7 @@ nav#portal-nav {
 
 /* إخفاء الـ radio الأصلي */
 .warning-radio-group input[type="radio"] {
+    width: fit-content;
     position: absolute;
     opacity: 0;
     pointer-events: none;
