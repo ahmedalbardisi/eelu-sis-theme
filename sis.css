@@ -1680,3 +1680,9 @@ nav#portal-nav {
     outline: 3px solid rgba(31, 67, 133, 0.15);
     outline-offset: 2px;
 }
+table#feesTbl {
+
+    border: none;
+    border-radius: 0;
+  
+}
