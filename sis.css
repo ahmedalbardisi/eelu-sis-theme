@@ -1687,3 +1687,23 @@ table#feesTbl {
     border-radius: 0;
   
 }
+.grades-table th {
+    background-color: var(--primary-color);
+    color: var(--white-color) !important;
+}
+
+.grades-header {
+    text-align: unset;
+}
+
+.student-info-card {
+    background: unset;
+    margin: unset;
+    padding: unset;
+}
+
+.student-info-card table {
+    box-shadow: unset;
+}
+
+.student-info-card td {color: var(--primary-color);font-weight: 900;}
